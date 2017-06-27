@@ -28,11 +28,10 @@ public class DQuery2 {
 
 		for (int i = 1; i < a.length; i++) {
 
-			HashMap<Integer, Integer> bufferMap1 = new HashMap<Integer, Integer>(
-					hm.get(i - 1));
+			HashMap<Integer, Integer> bufferMap1 = new HashMap<Integer, Integer>(hm.get(i - 1));
 
 			int k = bufferMap1.containsKey(a[i]) ? bufferMap1.get(a[i]) : 0;
-			bufferMap1.put(a[i], k + 1);
+			bufferMap1.put(a[i], k + 1);   // every index stores values from 0 till that index
 
 			hm.put(i, bufferMap1);
 
@@ -50,26 +49,23 @@ public class DQuery2 {
 				continue;
 			}
 
-			else if (l == 1) {
+			else if (l == 1) {     // Range starts from beginning
 				System.out.println(hm.get(r - 1).size());
 
 			}
 
 			else {
-				HashMap<Integer, Integer> leftSide = new HashMap<Integer, Integer>(
-						hm.get(l - 2));
+				HashMap<Integer, Integer> leftSide = new HashMap<Integer, Integer>(hm.get(l - 2));
 
-				HashMap<Integer, Integer> rightSide = new HashMap<Integer, Integer>(
-						hm.get(r - 1));
+				HashMap<Integer, Integer> rightSide = new HashMap<Integer, Integer>(hm.get(r - 1));
 
-				// Iterating the right side
+				// Iterating the leftSide side
 
 				for (Map.Entry<Integer, Integer> entry : leftSide.entrySet()) {
 
 					int num = entry.getKey();
 					int lValue = entry.getValue();
-					int rValue = rightSide.containsKey(num) ? rightSide
-							.get(num) : 0;
+					int rValue = rightSide.containsKey(num) ? rightSide.get(num) : 0;
 
 					if ((rValue - lValue) > 0)
 						countDistinct++;
