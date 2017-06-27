@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+/*Solution better than N*Q but memory intensive */
+
 public class DQuery2 {
 
 	public static void main(String[] args) {
